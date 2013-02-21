@@ -1,3 +1,4 @@
+// Header from me -- Sakares S.
 #include "find.hpp"
 #define BOOST_TEST_MODULE floatingTest
 #include <boost/test/included/unit_test.hpp>
