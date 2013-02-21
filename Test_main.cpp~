@@ -1,14 +1,3 @@
-/******************************************************************/
-
-/* Program Assignment:  PSP1                                        */
-
-/* Name:                SDQI 2003 CLASS                             */
-
-/* Date:                18 February 2013          */
-
-/* Description:         Test PSP1*/
-
-/******************************************************************/
 #include "find.hpp"
 #define BOOST_TEST_MODULE floatingTest
 #include <boost/test/included/unit_test.hpp>
