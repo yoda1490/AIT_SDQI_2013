@@ -1,4 +1,3 @@
 *.o
 *~
-progM
-progT
+*.exe
