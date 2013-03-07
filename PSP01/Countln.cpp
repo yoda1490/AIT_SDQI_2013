@@ -41,7 +41,7 @@ bool countln::ccomment(string t){
 
 
 void countln::cclass(string t){
-	boost::char_separator<char> sep(" \t");
+	boost::char_separator<char> sep(" \t","::");
 	tokenizer< char_separator<char> > tok(t, sep);
 	tokenizer< char_separator<char> >::iterator wbeg = tok.begin();
 	if (*wbeg == "class"){
@@ -79,7 +79,7 @@ void countln::cclass(string t){
 
 
 bool countln::cloc(string t){
-	boost::char_separator<char> sep(" \t");
+	boost::char_separator<char> sep(" \t","::");
 	maxsemi=1;
 	csemi=0;
 	tokenizer< char_separator<char> > tok(t, sep);

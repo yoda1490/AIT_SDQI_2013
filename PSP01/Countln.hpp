@@ -1,6 +1,7 @@
 #include <string>
 struct node{
 	std::string name;
+	std::list<std::string> method;
 	int num;
 	node* next;
 };

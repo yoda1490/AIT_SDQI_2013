@@ -14,3 +14,4 @@ for (; ;)
 }
 while 
 9
+int s::a(){};
