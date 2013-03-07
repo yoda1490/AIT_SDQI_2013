@@ -1,0 +1,11 @@
+ ; ; //Count two line of code but with warning that it is not respect
+/* */
+#  //this is one LOC
+#include <foo> 
+double; //
+class{ };
+class{ foo; }; //count 2
+for(;;)   //This should be two  LOC
+{ //lonely bracket are not count
+  bar; //
+}

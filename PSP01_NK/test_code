@@ -1,0 +1,22 @@
+// TOTAL OF THIS FILE SHOULD BE 10
+; ; //Count two line of code but with warning that it is not respect
+/* */
+#  //this is one LOC
+#include <foo> 
+double; //
+class{ };
+class{ foo; }; //count 2
+for(;;)   //This should be two  LOC
+{ //lonely bracket are not count
+  bar; //
+}
+
+
+siwtch(a){ //whole thing here is two. These are additional of the answers
+ case 1: //each case is count as one
+}
+
+for(;;){ ; ; } //We give 3 LOC but warn the programmer.
+
+//All declaration is define within the main or before the main.
+fooo; /*  */  foo; //We will ignore the comments too
