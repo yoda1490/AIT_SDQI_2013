@@ -2,7 +2,7 @@
 //A little piece of code that ask you some information needed to execute
 // git command with good parameter for this project
 
-
+#include <boost/test/minimal.hpp>
 #include <iostream>
 #include <vector>
 #include <sstream>
@@ -11,20 +11,32 @@
 
 using namespace std;
 
-int main(int argc, char ** argv)
+template <typename T>
+string Str( const T & t ) {
+	ostringstream os;
+	os << t;
+	return os.str();
+}
+
+int test_main(int , char *[])
 {
 	string separator = " ";
 	//todo --> detected iteration number
-	int i_n = 0;
+	int i_n = 1;
 	cout << "Iteration Number: " << i_n << endl;
 	
 
 	string phase;
+
 	while(phase != "c" && phase != "t"){
 		if(phase.length() > 0)	cout << "Error: only 'c' or 't' is acceptable for this input" << endl;
 		cout << "Enter Phase (c for codding or t for test): ";
-		cin >> phase;
+		//cin >> phase;
+		phase = "t";
 	}
+
+	
+	
 	cout << endl;
 
 	string working_hour_string;
@@ -32,33 +44,64 @@ int main(int argc, char ** argv)
 	while(working_hour <= 0){
 		if(phase.length() > 0)	cout << "Error: only number accepter for this input" << endl;
 		cout << "Enter real working hour: ";
-		cin >> working_hour_string;
+		//cin >> working_hour_string;
+      		working_hour_string = "10";
 		working_hour = atof(working_hour_string.c_str());
 	}
+	
 	cout << endl;
-
+	
 	vector<string> listUser;
 	string lastUser;
 	int cpt=1;
 	cout << "Enter all worker (Enter empty line to finish)" << endl;
 
 	cin.clear();
-	while (getline( cin, lastUser ) && (lastUser.length()>0  || listUser.size()<1)){
+	/*while (getline( cin, lastUser ) && (lastUser.length()>0  || listUser.size()<1)){
 		cout << "Worker "<<cpt<<": ";
 		istringstream ss( lastUser );
 		listUser.push_back(lastUser);
 		cpt++;
+	}*/
+	listUser.push_back("job");
+	listUser.push_back("faith");
+	
+
+
+	if ( i_n != 1)
+	{
+		BOOST_ERROR("wrong i_n");
 	}
-
-
-	cout << "@iterationID#" << i_n << separator << "@phase=" << phase << separator << "@workingHour=" << working_hour << separator << "@worker=";
+	cout << endl;
+	if (phase != "t")
+	{
+		BOOST_ERROR("wrong phrase");
+	}
+	cout << endl;
+	if (working_hour != 10)
+	{
+		BOOST_ERROR("wrong hour");
+	}
+	cout << endl;	
+	
+	string test_pair_name = "";
+	
 	for(int i=0; i<listUser.size();i++){
-		cout << listUser.at(i); 
+		test_pair_name += listUser.at(i); 
 		if(i<listUser.size()-1)
-			cout << ",";
+			test_pair_name += ",";
 	}
 
-	cout << separator << endl;
+        cout << "Expected Listuser size = " << listUser.size() << endl;	
+	cout << "Expected test_pair_name = " << test_pair_name << endl;
+	if(test_pair_name != ",job,faith")
+	{
+		BOOST_ERROR("wrong number of pair");
+	}
+		
+
+	cout << endl;
+	return 0;
 	//system(git commit )
 
 }
