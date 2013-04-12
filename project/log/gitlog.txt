@@ -1,0 +1,205 @@
+commit 4e70f9d551781496b81f8155dce09864ded97995
+Merge: 3cc225b ecb61a5
+Author: sakares <sakares@sakares-VirtualBox.(none)>
+Date:   Thu Apr 11 17:55:17 2013 +0700
+
+    Merge branch 'testing'
+
+commit ecb61a5f87174cc5ca98b2e85c3c5f9a97667ec5
+Author: sakares <sakares@sakares-VirtualBox.(none)>
+Date:   Tue Apr 9 14:00:39 2013 +0700
+
+    Perform minimal testing instead of unit testing
+    @iterationID = 0408
+    @phase = t
+    @startdate = 9/4/2013
+    @workinghour = 1
+    @worker = job,faith
+    @defect_inject = c
+    @defect_type = 20 (Syntax)
+    @comment = This code cannot be used for unit testing since there is no clear function (just only main)
+    	   So, we choose to use minimal test for this testing. The error that we've found is in the pair list name.
+               - The pair list name alwats begin with comma (",")
+    	   - missing return 0;
+
+commit 3cc225b8ee80b8c99952782443e788ac4ff4d2fd
+Author: yoda1490 <y0da@live.fr>
+Date:   Mon Apr 8 12:20:58 2013 +0700
+
+    templater not finished
+
+commit cab17ba97838f5c6723f04989426ebaa38b8000e
+Author: yoda1490 <y0da@live.fr>
+Date:   Mon Apr 8 11:04:01 2013 +0700
+
+    creation of templater.c
+
+commit 006d6e628dc820ec275ce11383b262c0b98ba160
+Author: yoda1490 <y0da@live.fr>
+Date:   Mon Apr 8 11:03:48 2013 +0700
+
+    creation of templater.c
+
+commit 26bdf0676af68fef0460c17225accb6053daea97
+Author: yoda1490 <y0da@live.fr>
+Date:   Mon Apr 8 11:01:50 2013 +0700
+
+    creation of templater.c
+
+commit 5be342123677cbcc504c9fc47808fab258e60d54
+Author: sakares <sakares@sakares-VirtualBox.(none)>
+Date:   Tue Apr 2 14:21:19 2013 +0700
+
+    @workhour=0.1 ,add README
+
+commit df666cacff42c0c09b17312ae4090893ff80d55c
+Author: sakares <sakares@sakares-VirtualBox.(none)>
+Date:   Tue Apr 2 14:11:20 2013 +0700
+
+    @workhour=2 ,Initialize the project
+    - This is a small prototype for our project
+    - The concept is we have 1. start-point 2. Logic Unit 3. Report Unit
+    - We will add feature (or Ability) to the software by difficult. Start with easiest and improve by adding harder feature.
+      Hence, we can see our progress from the software have more ability.
+    - [Problem] :
+      I have create the main file and seperate .hpp file and feature .cpp file
+      for easier to separate work in the future. But I don't know why I can't compile it
+      if you understand what I did, please help me fix it
+
+commit 07a8f7e60fe10395ce595c0fcd695f641d4246c9
+Merge: d3ca355 28463e7
+Author: yoda1490 <y0da@live.fr>
+Date:   Mon Mar 11 12:17:20 2013 +0700
+
+    Merge branch 'master' of https://github.com/yoda1490/AIT_SDQI_2013
+
+commit 28463e726bd785238dcb8c60ce2ebd4f05424fce
+Author: Faith <faith@ubuntu.(none)>
+Date:   Mon Mar 11 12:04:14 2013 -0400
+
+    add header to boost test in the XP assignment
+
+commit d4a1cc107bbe4559e01fb53e2e67be11a0c1ce81
+Author: Faith <faith@ubuntu.(none)>
+Date:   Mon Mar 11 11:55:06 2013 -0400
+
+    new test
+
+commit aadf97fdbfbceee918c06fcacd6e1cc1029bb744
+Author: Faith <faith@ubuntu.(none)>
+Date:   Mon Mar 11 11:00:01 2013 -0400
+
+    Add the test and the file to be test in folder Count_Line_of_Code
+
+commit d3ca355b872cd4ca8d4c22e4a75d8adf13194a90
+Author: yoda1490 <y0da@live.fr>
+Date:   Mon Mar 11 12:16:15 2013 +0700
+
+    new version
+
+commit 743f9118c5adb0a8356c1062f49bf887d9de2261
+Author: nutkong <nuttapon.k@appman.co.th>
+Date:   Thu Mar 7 17:24:42 2013 +0700
+
+    only the source code
+
+commit 665cfb8b69bf8e335cd02c35815fa482c814df22
+Author: nutkong <nuttapon.k@appman.co.th>
+Date:   Thu Mar 7 17:02:09 2013 +0700
+
+    add my version
+
+commit 4cea68487015396c00db9e3c647faa2223e25124
+Author: Faith <faith@ubuntu.(none)>
+Date:   Thu Mar 7 16:16:24 2013 -0500
+
+    edit using EP
+
+commit 7c774631dd0ccf90ed94562f8ae37b626097fdb6
+Author: Faith <faith@ubuntu.(none)>
+Date:   Wed Mar 6 15:08:12 2013 -0500
+
+    Make change in ignore file
+
+commit d786021f41bfad9ceaf67d451c721e32bebbeb92
+Author: Faith <faith@ubuntu.(none)>
+Date:   Wed Mar 6 15:04:06 2013 -0500
+
+    ADD folder psp1 and add file psp01 (last one mistake)
+
+commit 71efded4fb5df431844ec09468da08a218b79946
+Author: Faith <faith@ubuntu.(none)>
+Date:   Wed Mar 6 15:03:34 2013 -0500
+
+    Add PSP01 and make folder for psp 1
+
+commit 91674ece3da6e06ac51a1f89f8db116ef90c29b9
+Author: Faith <faith@ubuntu.(none)>
+Date:   Thu Feb 21 18:14:21 2013 -0500
+
+    add the ignore files
+
+commit 78b9d6c8bc77bee1a748ef11707e4d8c176c9cd5
+Author: sakares <sakares@sakares-VirtualBox.(none)>
+Date:   Thu Feb 21 18:09:57 2013 +0700
+
+    I remove execute binary file
+
+commit e3cfd3b633d622247797de4c34d55e6862ce8844
+Author: sakares <sakares@sakares-VirtualBox.(none)>
+Date:   Thu Feb 21 18:05:37 2013 +0700
+
+    I remove all of ".o" file
+
+commit 8536c9512d61e46b40e228e8a8549ad0cd25653b
+Merge: 47f0094 525e655
+Author: sakares <sakares@sakares-VirtualBox.(none)>
+Date:   Thu Feb 21 17:58:03 2013 +0700
+
+    Merge branch 'master' of https://github.com/yoda1490/AIT_SDQI_2013
+    
+    Conflicts:
+    	Test_main.cpp
+
+commit 525e655f205276c9bb13687071a6941d38486210
+Author: Faith <faith@ubuntu.(none)>
+Date:   Thu Feb 21 17:51:47 2013 -0500
+
+    Edit the header in Test_main.cpp
+
+commit 0135376faa5ed6040649c33994b9965830fa5959
+Author: Faith <faith@ubuntu.(none)>
+Date:   Thu Feb 21 17:50:02 2013 -0500
+
+    add the main and .o file
+
+commit 7a059916ee6634bba14fe250a8667cd21bd0b233
+Author: Faith <faith@ubuntu.(none)>
+Date:   Thu Feb 21 17:43:51 2013 -0500
+
+    Add find.hpp find.cpp and Test_main.cpp
+
+commit 47f0094ba6216c1055d136db6f3354021dfece09
+Author: sakares <sakares@sakares-VirtualBox.(none)>
+Date:   Thu Feb 21 17:53:06 2013 +0700
+
+    I have change the header
+
+commit 32e36dcc6a7364c743d5472543629956b21d8218
+Author: sakares <sakares@sakares-VirtualBox.(none)>
+Date:   Thu Feb 21 17:37:09 2013 +0700
+
+    File from lab3 by Sakares S.
+    - main.cpp
+
+commit 5fb9ac6bea00ddbd74e3d5aa4e7a8a50bcc1af21
+Author: yoda1490 <admin@tea42.fr>
+Date:   Thu Feb 21 10:49:56 2013 +0100
+
+    first commit
+
+commit 49a1466b772471c04019901d9cfc1a3f4b86feec
+Author: Amaury <y0da@live.fr>
+Date:   Thu Feb 21 01:34:49 2013 -0800
+
+    Initial commit
