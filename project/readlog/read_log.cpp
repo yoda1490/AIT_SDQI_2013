@@ -53,6 +53,7 @@ string readlog::logdata(string file_name)
 	{
 		getline(file,temp);
 		text.append(temp);
+		text += "\n";
 	}
 
 	file.close();

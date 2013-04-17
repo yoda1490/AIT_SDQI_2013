@@ -3,5 +3,5 @@
 using namespace std;
 int main(){
 readlog rl;
-cout << rl.logdata("gitlog.txt");
+cout << rl.logdata("gitlog_test.txt");
 }
