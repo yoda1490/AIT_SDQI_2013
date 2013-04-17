@@ -1,0 +1,6 @@
+commit 4e70f9d551781496b81f8155dce09864ded97995
+Merge: 3cc225b ecb61a5
+Author: sakares <sakares@sakares-VirtualBox.(none)>
+Date:   Thu Apr 11 17:55:17 2013 +0700
+
+    Merge branch 'testing'

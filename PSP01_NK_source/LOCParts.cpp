@@ -7,21 +7,21 @@
 #include "LOCParts.hpp"
 
 //--the Parts -------
-  std::string Parts::getName()
+  std::string getName()
   {
 	return this->partName;
   }
-  void Parts::setName(string inps)
+  void setName(string inps)
   {
 	  partName = inps;
   }
-  void Parts::insertItem(string inps, std::string inp_beg , std::string inp_end)
+  void insertItem(string inps, std::string inp_beg , std::string inp_end)
   {
 	 items.insert( std::pair<Items*,int>(new Items(inps, inp_beg, inp_end),0) );
   }
  //--Item parts----------
 
-  Items::Items* Parts::getItem(string inps) //Return the searching item
+  Items::Items* getItem(string inps) //Return the searching item
   {
 	  std::map<Items::Items* ,int>::iterator it;
 	  //cout << "----"<< inps << " "<< items.size() << endl ;
@@ -38,18 +38,18 @@
 	  return NULL;
 	  //return this->items[inps];
   }
-  std::string Parts::getItembeginChar(string ips)
+  std::string getItembeginChar(string ips)
   {
 	  Items::Items* temp_item = this->getItem(ips);
 		return temp_item->beginChar;
   }
-  std::string Parts::getItemendChar(string ips)
+  std::string getItemendChar(string ips)
   {
 	  Items::Items* temp_item = this->getItem(ips);
 	  return temp_item->endChar;
   }
 
-  void Parts::detailsPrint() //Print out all the items
+  void detailsPrint() //Print out all the items
   {
  	  std::map<Items::Items* ,int>::iterator it;
  	  for (it=items.begin(); it!=items.end(); ++it)
@@ -57,7 +57,7 @@
  	     std::cout << it->first->getName() << " => " << it->second << '\n';
  	  }
   }
-  int Parts::getTotal(){
+  int getTotal(){
   	  int total = 0;
   	  std::map<Items::Items* ,int>::iterator it;
   	  for (it=items.begin(); it!=items.end(); ++it)
@@ -69,7 +69,7 @@
 
 
 
- void Parts::countValiditemsInPart(std::string string_input ,int line_number) //Plus the number of items (if found)
+ void countValiditemsInPart(std::string string_input ,int line_number) //Plus the number of items (if found)
   {
 	  input_line = string_input;
 	  std::string sub_input  = input_line;
@@ -176,7 +176,7 @@
   }
 
   //find and mark items
-  void Parts::countItemToken( int start_position)
+  void countItemToken( int start_position)
   {
 	  //this method will only check the input string with the insert token
 	  std::map<Items::Items* ,int>::iterator it;
@@ -203,7 +203,7 @@
 	  }
   }
 
-  int Parts::processTokenWithBeginChar(int beg_pos)//determine the start and close on the item
+  int processTokenWithBeginChar(int beg_pos)//determine the start and close on the item
   {
 	  //call_stack.push_back(ite); //push value into the call stack
 	  int pos = findBeginToken(beg_pos);
@@ -233,7 +233,7 @@
 	  return call_stack.back()->line_position;
   }
 
-  int Parts::processTokenWithEndChar( int beg_pos)
+  int processTokenWithEndChar( int beg_pos)
   {
 	  int pos = findCloseToken(beg_pos);
 	  //int close_size ;
@@ -257,7 +257,7 @@
   }
 
   //get the first token in line
-  Items* Parts::fetchFirstToken(int line_size,int line_start)
+  Items* fetchFirstToken(int line_size,int line_start)
   {
 	//cout<< line_size << " " <<line_start <<endl;
 	  Items::Items* return_item = NULL;
@@ -295,7 +295,7 @@
 	  return return_item;
   }
 
-  void Parts::resetItemsTempPosition()//for start finding item in the line
+  void resetItemsTempPosition()//for start finding item in the line
   {
 	  std::map<Items::Items* ,int>::iterator it;
 	  for (it=items.begin(); it!=items.end(); ++it)
@@ -303,30 +303,30 @@
 		  it->first->resetPosition();
 	  }
   }
-int Parts::findCloseToken(int start_position) //Check the close token from the callstack
+int findCloseToken(int start_position) //Check the close token from the callstack
 {
 	int pos = input_line.find(call_stack.back()->endChar,start_position);
 	return pos;
 }
-int Parts::findBeginToken(int start_position)
+int findBeginToken(int start_position)
 {
 	int pos = input_line.find(call_stack.back()->beginChar,start_position);
 	return pos;
 }
-void Parts::plusItem(Items* ite)
+void plusItem(Items* ite)
 {
 	//cout<<" +plus:"<<ite->getName() <<endl;
 	items[ite] +=1;
 	++number_itemfound;
 }
 
-void Parts::setItem2Look(Items::Items* ite)
+void setItem2Look(Items::Items* ite)
 {
 	item_to_look_for = ite;
 }
 
 /*
-  int Parts::countItem( int start_position)//Check all items in the config
+  int countItem( int start_position)//Check all items in the config
   {
 	  std::map<Items::Items* ,int>::iterator it;
 	  Items::Items* last_item = NULL;
@@ -437,7 +437,7 @@ void Parts::setItem2Look(Items::Items* ite)
   }*/
 
 /*
-void Parts::countValiditemsInPart(std::string string_input ,int line_number) //Plus the number of items (if found)
+void countValiditemsInPart(std::string string_input ,int line_number) //Plus the number of items (if found)
 {
 	  input_line = string_input;
 }*/
@@ -446,7 +446,7 @@ void Parts::countValiditemsInPart(std::string string_input ,int line_number) //P
 
 
 
-  std::string Parts::showTheError(){
+  std::string showTheError(){
 	  if(!call_stack.empty())
 	  {
 		  warning_message += "\nWarning: the call stack is not empty, forget to close a syntax somewhere";
