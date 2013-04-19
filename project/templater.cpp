@@ -56,7 +56,7 @@ int main(int argc, char ** argv)
 
 	cout << "Start date" << endl;
 
-	
+	cin.clear();
 	string startDayString;
 	int startDay = -1;
 	while(startDay < 0){
@@ -65,6 +65,7 @@ int main(int argc, char ** argv)
 		cin >> startDayString;
 		startDay = to_int(startDayString.c_str());
 	}
+	cin.clear();
 	string startMonthString;
 	int startMonth = -1;
 	while(startMonth < 0){
@@ -73,6 +74,7 @@ int main(int argc, char ** argv)
 		cin >> startMonthString;
 		startMonth = to_int(startMonthString.c_str());
 	}
+	cin.clear();
 	string startYearString;
 	int startYear = -1;
 	while(startYear < 0){
@@ -81,7 +83,7 @@ int main(int argc, char ** argv)
 		cin >> startYearString;
 		startYear = to_int(startYearString.c_str());
 	}
-
+	cin.clear();
 	string defInj;
 	while(defInj != "c" && defInj != "t"){
 		if(defInj.length() > 0)	cout << "Error: only 'c' or 't' is acceptable for this input" << endl;
@@ -90,6 +92,7 @@ int main(int argc, char ** argv)
 	}
 	cout << endl;
 	
+	cin.clear();
 	string defTypeString;
 	float defType = -1;
 	while(defType < 0){
@@ -133,21 +136,22 @@ int main(int argc, char ** argv)
 		cin >> commit;
 	}
 
-	const int MAX_BUFFER = 2048;
-
+	
 	if(commit == "yes"){
 		string output = "git commit -a -m \"" + oss.str() + "\"";
-		cout << output << endl;
-		FILE *fp = popen(output.c_str(), "r");
-		char buf[MAX_BUFFER];
-		while (!feof(fp))
-       	{
-            if (fgets(buf, MAX_BUFFER, fp) != NULL)
-            {
-               cout << buf << endl;
-            }
-       	}
-		cout << "commited" << endl;
+		const char* op = output.c_str();
+		cout << op << endl;
+		FILE* pipe = popen(op, "r");
+	    if (!pipe) return -1;
+	    char buffer[128];
+	    std::string result = "";
+	    while(!feof(pipe)) {
+	    	if(fgets(buffer, 128, pipe) != NULL)
+	    		result += buffer;
+	    }
+	    pclose(pipe);
+	    
+		cout << result << endl;
 	}
 
 
