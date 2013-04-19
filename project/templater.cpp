@@ -15,6 +15,7 @@ using namespace std;
 
 int getIterationNumberMax();
 int to_int(char const *s);
+string perform(const char * command);
 
 int main(int argc, char ** argv)
 {
@@ -139,19 +140,8 @@ int main(int argc, char ** argv)
 	
 	if(commit == "yes"){
 		string output = "git commit -a -m \"" + oss.str() + "\"";
-		const char* op = output.c_str();
-		cout << op << endl;
-		FILE* pipe = popen(op, "r");
-	    if (!pipe) return -1;
-	    char buffer[128];
-	    std::string result = "";
-	    while(!feof(pipe)) {
-	    	if(fgets(buffer, 128, pipe) != NULL)
-	    		result += buffer;
-	    }
-	    pclose(pipe);
-	    
-		cout << result << endl;
+		const char * op = output.c_str();
+		cout << perform(op) << endl;
 	}
 
 
@@ -159,10 +149,29 @@ int main(int argc, char ** argv)
 
 }
 
+string perform(const char * command){
+
+	cout << command << endl;
+	FILE* pipe = popen(command, "r");
+    if (!pipe){
+    	return "Error while commiting";
+    } 
+    char buffer[128];
+    std::string result = "";
+    while(!feof(pipe)) {
+    	if(fgets(buffer, 128, pipe) != NULL)
+    		result += buffer;
+    }
+    pclose(pipe);
+    
+	return result;
+}
+
 int getIterationNumberMax(){
 	FILE *fp = popen("git log | grep @iterationID | sed -e 's_.*@iterationID *= *\\([^ \\n]*\\)_\\1_'", "r");
 	char buf[1024];
 
+	cout << buf << endl;
 	fgets(buf, 1024, fp);
 
 	
