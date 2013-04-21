@@ -1,4 +1,9 @@
 #include <string>
+#include <vector>
+#include <iterator>
+#include <sstream>
+#include <iostream>
+#include "../readlog/read_log.hpp"
 
 class extractor {
     protected:
@@ -57,4 +62,8 @@ class extractor {
    		return comment;
 	}
         void setComment(std::string input);
+	std::vector<extractor> main_extract(std::string file_name);
+	//void printExtractor(extractor et);
+	//void printResultList(std::vector<extractor> & v);
 };
+
