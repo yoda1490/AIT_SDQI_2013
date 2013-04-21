@@ -78,7 +78,7 @@ class LogData{
 		std::string _phase;
 		std::string _start_date;
 		float _working_hour;
-		Worker::Worker*  _worker_pair;  /* Worker class */
+		Worker  _worker_pair;  /* Worker class */
 		Defect _defect;
 		std::string _comment; //the comment data type
 	public:
@@ -105,4 +105,4 @@ class LogData{
 
 int iteration_counter2 =0; //Count each iteration and then add them up
 std::string current_iteration2 = ""; //track the current iteration.
-Worker::Worker*  worker_list;  /* Worker class */
+Worker  worker_list;  /* Worker class */
