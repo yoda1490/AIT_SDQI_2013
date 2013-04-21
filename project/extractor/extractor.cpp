@@ -103,7 +103,7 @@ void printResultList(vector<extractor> & v)
 
 }
 */
-vector<extractor> extractor::main_extract(std::string file_name){
+list<extractor> extractor::main_extract(std::string file_name){
     bool key_commit = false;
     bool key_author = false;
     bool key_date = false;
@@ -120,7 +120,7 @@ vector<extractor> extractor::main_extract(std::string file_name){
 
     string comment_stream = "";
 
-    vector<extractor> result_list;
+    list<extractor> result_list;
   
     readlog rl;
     extractor et; 

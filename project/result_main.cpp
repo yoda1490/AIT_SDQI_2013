@@ -1,13 +1,17 @@
-#include "statistic/Team_report.hpp"
+#include "statistic2/Team_report.hpp"
 using namespace std;
 
 int main(){
     Teamdata team;
-    team.Cal_Statistic(/* output from p'Nut*/);
-    cout << "Total hours of testing " << team.get_Total_hours_phase()["T"];
-    cout << "Total hours of coding " << team.get_Total_hours_phase()["C"];
-    cout << "Total hours of working " << team.get_Total_hours_phase()["C"] + team.get_Total_hours_phase()["T"];
-    cout << "Total number of iteration " << temp.size();
-        cout << "Average working hours per iteration " << (team.get_Total_hours_phase()["C"] + team.get_Total_hours_phase()["T"])/temp.size();;
+    extractor et;
+    list<extractor> tmp = et.main_extract("log/gitlog.txt");
+    team.Cal_Statistic(tmp);
+    float Total_h_PT = (((team.get_Total_hours_phase("t")*10)+0.5)/10);
+    float Total_h_PC = (((team.get_Total_hours_phase("c")*10)+0.5)/10);
+    cout << "Total hours of testing " << Total_h_PT << endl;
+    cout << "Total hours of coding " << Total_h_PC << endl;
+    cout << "Total hours of working " << Total_h_PC + Total_h_PT << endl;
+    cout << "Total number of iteration " << tmp.size() << endl;
+        cout << "Average working hours per iteration " << (Total_h_PC + Total_h_PT)/tmp.size() << endl;
     
 }
