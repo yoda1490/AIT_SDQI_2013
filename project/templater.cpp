@@ -19,6 +19,10 @@ string perform(const char * command);
 
 int main(int argc, char ** argv)
 {
+
+
+
+
 	string separator = " ";
 	int i_n = getIterationNumberMax();
 	cout << "Iteration Number: " << i_n << endl;
@@ -168,19 +172,21 @@ string perform(const char * command){
 }
 
 int getIterationNumberMax(){
-	FILE *fp = popen("git log | grep @iterationID | sed -e 's_.*@iterationID *= *\\([^ \\n]*\\)_\\1_'", "r");
-	char buf[1024];
+	FILE *pipe = popen("git log | grep @iterationID | sed -e 's_.*@iterationID *= *\\([^ \\n]*\\)_\\1_'", "r");
+	if (!pipe){
+    	cout << "Error while commiting";
+    } 
+    char buffer[128];
+    std::string result = "";
 
-	cout << buf << endl;
-	fgets(buf, 1024, fp);
-
-	
-
-	int i=0;
-	
-	i=to_int(buf);
-
-	fclose(fp);
+    int i=0;
+    while(!feof(pipe) && i==0) {
+    	if(fgets(buffer, 128, pipe) != NULL){
+    		result = buffer;
+    		i = to_int(result.substr(0, result.size()-1).c_str());
+    	}
+    }
+    pclose(pipe);
 
 	return i+1;
 }
