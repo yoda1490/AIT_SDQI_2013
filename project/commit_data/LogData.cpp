@@ -1,6 +1,5 @@
 #include "LogData.hpp"
 
-using namespace std;
 
 /* Defect constructor */
 Defect::Defect(){
@@ -26,16 +25,16 @@ std::string LogData::ZeroPadNumber(int num, int num_length)
 std::string LogData::generateIteration(std::string it_input)
 {
 	string output = it_input;
-	if(current_iteration.compare(it_input) == 0 )//same
+	if(current_iteration2.compare(it_input) == 0 )//same
 	{
-		iteration_counter++;
-		output =  output.append( LogData::ZeroPadNumber(iteration_counter,2));
+		iteration_counter2++;
+		output =  output.append( LogData::ZeroPadNumber(iteration_counter2,2));
 	}
 	else
 	{
-		current_iteration = it_input;
-		iteration_counter = 1;
-		output =  output.append( LogData::ZeroPadNumber(iteration_counter,2));
+		current_iteration2 = it_input;
+		iteration_counter2 = 1;
+		output =  output.append( LogData::ZeroPadNumber(iteration_counter2,2));
 	}
 	return output;
 }
@@ -56,7 +55,26 @@ float LogData::getWorkingHour()
 	return this->_working_hour;
 }
 //------- Worker -----------
+Worker::Worker(std::string input_string)
+{
+	boost::split(_workers,input_string,boost::is_any_of(","));
+	// _workers = split(input_string , ',');
+}
+int Worker::getTotalWorker()
+{
+	return _workers.size();
+}
 
+std::vector<std::string> Worker::getWorkerList()
+{
+	return _workers;
+}
+
+void Worker::printWorker()
+{
+	 for(int i =0 ; i < _workers.size(); i++)
+	 	cout << "worker :" << _workers[i] <<endl;
+}
 //------- Defect -----------
 
 
@@ -70,15 +88,17 @@ LogData::LogData(std::string iterationID, std::string phase ,std::string date, s
 {
 	_iteration_id  = generateIteration(iterationID);
 	_phase =  phase;
+	
 	// TIME --- _start_date
 	const char* workh_buffer ;
 	workh_buffer = workh.c_str();
 	_working_hour = atof(workh_buffer);
 
+	_worker_pair = new Worker::Worker(worker_input);
+	// cout << temp_worker.getTotalWorker << endl;
+
 	_comment = comment_input;
 
-	cout << " Construct!!! "<< endl ;
-	cout << " :"<<_iteration_id <<endl;
 }
 
 

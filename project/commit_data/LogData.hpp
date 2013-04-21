@@ -1,22 +1,31 @@
 #include <list>
+#include <vector>
+
+// #include <stdlib>
+
 #include <string>
 #include <sstream>
 #include <iostream>
 #include <ctime>
-
-
+#include <boost/algorithm/string/split.hpp>
+#include <boost/algorithm/string.hpp> 
+using namespace std;
 
 /*****************************************************************
-  Reuse instructions                                          
-    Purpose: Worker
+  Reuse instructions
+  	Worker("nk , faith , job")                                          
+    Purpose: Linked List of workers
     Limitations: -
     Return: A worker object
 *****************************************************************/
 class Worker{
 	private:
-		std::list<std::string> workers;
+		std::vector< std::string > _workers;
 	public:
-		
+		Worker(std::string); //constructor
+		int getTotalWorker(); //return number of workers
+		std::vector <std::string> getWorkerList();
+		void printWorker();
 };
 
 /*****************************************************************
@@ -69,7 +78,7 @@ class LogData{
 		std::string _phase;
 		std::string _start_date;
 		float _working_hour;
-		Worker _worker_pair;  /* Worker class */
+		Worker::Worker*  _worker_pair;  /* Worker class */
 		Defect _defect;
 		std::string _comment; //the comment data type
 	public:
@@ -94,6 +103,6 @@ class LogData{
 };
 
 
-int iteration_counter =0; //Count each iteration and then add them up
-std::string current_iteration = ""; //track the current iteration.
-
+int iteration_counter2 =0; //Count each iteration and then add them up
+std::string current_iteration2 = ""; //track the current iteration.
+vector<std::string> worker_list; // Global workers list 
