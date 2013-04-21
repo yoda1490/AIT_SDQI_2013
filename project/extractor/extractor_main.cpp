@@ -37,7 +37,7 @@ Container& split(
   {
     typename Container::value_type field;
     getline( ss, field, delimiter );
-    if ((empties == split::no_empties) && field.empty()) continue;
+    if (field.empty()) continue;
     result.push_back( field );
   }
   return result;
