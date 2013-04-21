@@ -1,9 +1,72 @@
 #include <list>
 #include <string>
+#include <sstream>
 #include <iostream>
 #include <ctime>
 
-using namespace std;
+
+
+/*****************************************************************
+  Reuse instructions                                          
+    Purpose: Worker
+    Limitations: -
+    Return: A worker object
+*****************************************************************/
+class Worker{
+	private:
+		std::list<std::string> workers;
+	public:
+		
+};
+
+/*****************************************************************
+  Reuse instructions                                          
+    Phase->PHASE_CODE , Phase->PHASE_TEST    
+    Purpose: Phase Defect type         
+    Limitations: -
+    Return: PHASE VARIABLE
+*****************************************************************/
+class Phase{
+	private:
+		static const std::string PHASE_CODE;
+		static const std::string PHASE_TEST;
+		std::string _phase;
+	public:
+		Phase(std::string );
+
+		std::string getPhase(){
+			return _phase;
+		}
+
+		void setPhase(){
+
+		}
+};
+const std::string Phase::PHASE_CODE = "c";
+const std::string Phase::PHASE_TEST = "t";
+
+
+/*****************************************************************
+  Reuse instructions
+  	new Defect(Defect::Defect->DEFECT_ENVIRONMENT ,Phase::Phase->PHASE_CODE );                                          
+    Purpose: Store the Defect type           
+    Limitations: - t
+    Return: A defect object 
+*****************************************************************/
+class Defect{
+	private:
+		int defect_type;
+		// Phase defect_phase;
+	public:
+		Defect(); //constructor
+
+		static const int DEFECT_ENVIRONMENT = 10;
+		static const int DEFECT_SYNTAX = 20;
+		static const int DEFECT_SERVER = 30;
+		
+		void assignDefect(); /*Assign the DEFECT token to this Defect*/
+		 // getTokenType(); /*returning this defect token errors*/
+};
 
  // current date/time based on current system
  //   time_t now = time(0);
@@ -37,71 +100,10 @@ class LogData{
 		Defect defect;
 		std::string comment; //the comment data type
 	public:
-		LogData(std::string iterationID, std::string phase ,std::string date, std::string workh, std::string worker_input , std::string defect_inject_input , std::string comment_input   );
-};
-LogData(std::string iterationID, std::string phase ,std::string date, std::string workh, std::string worker_input , std::string defect_inject_input , std::string comment_input   );
-
-
-/*****************************************************************
-  Reuse instructions                                          
-    Phase->PHASE_CODE , Phase->PHASE_TEST    
-    Purpose: Phase Defect type         
-    Limitations: -
-    Return: PHASE VARIABLE
-*****************************************************************/
-class Phase{
-	private:
-		std::string PHASE_CODE = "C";
-		std::string PHASE_TEST = "T";
-		std::string _phase;
-	public:
-		Phase(std::string input_phase)
-		{
-			_phase =  input_phase;
-		}
-
-		getPhase()
-		{
-			return _phase;
-		}
+		LogData(std::string , std::string  ,std::string , std::string , std::string  , std::string  , std::string );
 };
 
 
-/*****************************************************************
-  Reuse instructions                                          
-    Purpose: Worker
-    Limitations: -
-    Return: A worker object
-*****************************************************************/
-class Worker{
-	private:
-		std::list<std::string> workers;
-	public:
+int iteration_counter =0; //Count each iteration and then add them up
+std::string current_iteration = ""; //track the current iteration.
 
-};
-
-
-/*****************************************************************
-  Reuse instructions
-  	new Defect(Defect::Defect->DEFECT_ENVIRONMENT ,Phase::Phase->PHASE_CODE );                                          
-    Purpose: Store the Defect type           
-    Limitations: - t
-    Return: A defect object 
-*****************************************************************/
-class Defect{
-	private:
-		int defect_type;
-		Phase defect_phase;
-	public:
-		static const int DEFECT_ENVIRONMENT = 10;
-		static const int DEFECT_SYNTAX = 20;
-		static const int DEFECT_SERVER = 30;
-		Defect(); //constructor
-		assignDefect(); /*Assign the DEFECT token to this Defect*/
-		getTokenType(); /*returning this defect token errors*/
-};
-
-/* Defect constructor */
-Defect::Defect (int defect_type, std::string defect_phase){
-	
-}
