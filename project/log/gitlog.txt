@@ -1,3 +1,95 @@
+commit edec10db02ce8c68b40d9215b73409da1619ac18
+Author: yoda1490 <y0da@live.fr>
+Date:   Sat Apr 20 01:29:54 2013 +0700
+
+    @phase=c @workingHour=4 @worker=Amaury @startdate=19/4/2013 @defect_inject=c @defect_type=0 @comment=Templater still don't commit ...
+
+commit dd0eaaf58cc5b1426cb9c59906eba1f2134d3de3
+Author: yoda1490 <y0da@live.fr>
+Date:   Sat Apr 20 01:07:32 2013 +0700
+
+    test
+
+commit aaa5f1f8a898f6378f830fb95f541178a6fb1879
+Author: yoda1490 <y0da@live.fr>
+Date:   Sat Apr 20 00:59:10 2013 +0700
+
+    @phase=c @workingHour=4 @worker=Amaury @startdate=19/4/2013 @defect_inject=c @defect_type=0 @comment=Real
+
+commit 3b7bd002bbcf2fd49ac016c89e8798b61ffb81e8
+Author: sakares <sakares@sakares-VirtualBox.(none)>
+Date:   Thu Apr 18 15:33:22 2013 +0700
+
+    Add GitLog_test.cpp back in unit testing folder
+
+commit 38dd75fc6845f898a030144fe8383d7587efa431
+Author: Faith <faith@faith-VirtualBox.(none)>
+Date:   Wed Apr 17 17:15:39 2013 +0700
+
+    make little change defect inject  += "/n" to make the line seperate
+
+commit 6e637366d294058c5ca30f5e513042a31d134015
+Author: Faith <faith@faith-VirtualBox.(none)>
+Date:   Wed Apr 17 17:04:33 2013 +0700
+
+    delete some file that change the place
+
+commit c141d9f2deaed3445734f90fd10dbcb8a40a368c
+Author: Faith <faith@faith-VirtualBox.(none)>
+Date:   Tue Apr 16 22:21:57 2013 +0700
+
+    Final read file is done working time together 2 hours 5 defects on the syntax only
+
+commit 8ac3eade931e346815c70a2847b0bc1556300ffe
+Author: sakares <sakares@sakares-VirtualBox.(none)>
+Date:   Fri Apr 12 14:37:37 2013 +0700
+
+        @iterationID = r3041201
+        @phase = t
+        @startdate = 12/4/2013
+        @workinghour = 0.01
+        @worker = job,mahdi
+        @defect_inject = t
+        @defect_type = 30 (Build,Package)
+        @comment = @30
+                   - I have remove the unit testing binary file
+
+commit 68b7be1479077b05254ae0dfa2858d77ba88d918
+Merge: 4398533 3e6d647
+Author: sakares <sakares@sakares-VirtualBox.(none)>
+Date:   Fri Apr 12 14:36:06 2013 +0700
+
+    Merge branch 'master' of https://github.com/yoda1490/AIT_SDQI_2013
+
+commit 4398533dcd504c6cbf2db350338a7ae93d0b3c06
+Author: sakares <sakares@sakares-VirtualBox.(none)>
+Date:   Fri Apr 12 14:24:44 2013 +0700
+
+    @iterationID = r3041201
+    @phase = t
+    @startdate = 12/4/2013
+    @workinghour = 1
+    @worker = job,mahdi
+    @defect_inject = t
+    @defect_type = 80 (Function)
+    @comment = @d80
+               - We have found with incorrect logic while doing unit test. It did not produce proper result in the first time
+                 So, we change syntax like a BOOST_ASSERT and assert and now, It's work
+    
+               Note:
+               - For job's machine, when i gonna compile the unit test I use this 'g++ gitLog_test.cpp -o gitLog_test -lboost_filesystem -lboost_system'
+                 if you have any problem while compiling unit test, you might try my solution
+    
+               What we have in unit test
+               1. Check 'gitlog.txt' is existed or not
+               2. Check 'gitlog.txt' is empty or not (check by file size)
+
+commit 3e6d647948c88bcaee07b5059282f6855b4b3d3f
+Author: Faith <faith@faith-VirtualBox.(none)>
+Date:   Fri Apr 12 01:07:31 2013 +0700
+
+    reading the log file (not finish ) didnt test yet due to no data to test
+
 commit 4e70f9d551781496b81f8155dce09864ded97995
 Merge: 3cc225b ecb61a5
 Author: sakares <sakares@sakares-VirtualBox.(none)>
