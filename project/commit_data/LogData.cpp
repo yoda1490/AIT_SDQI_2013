@@ -122,7 +122,11 @@ int main()
 	LogData logdata (iterationID_string, phase_string ,date_string , workinghour_string, worker_string , defect_input, comment_string );
 
 
+	
+	cout << logdata.getIteration() << endl;
+	cout << logdata.getPhase() << endl;
 	cout << logdata.getWorkingHour() << endl;
+	cout << logdata.getComment() << endl;
 	return 0;
 }
 
