@@ -14,13 +14,13 @@ using namespace std;
 /*****************************************************************
   Reuse instructions
   	Worker("nk , faith , job")                                          
-    Purpose: Linked List of workers
+    Purpose: Linked List of workers, this should automatically add to global variables worker_list
     Limitations: -
     Return: A worker object
 *****************************************************************/
 class Worker{
 	private:
-		std::vector< std::string > _workers;
+		std::vector<std::string> _workers;
 	public:
 		Worker(std::string); //constructor
 		int getTotalWorker(); //return number of workers
@@ -105,4 +105,4 @@ class LogData{
 
 int iteration_counter2 =0; //Count each iteration and then add them up
 std::string current_iteration2 = ""; //track the current iteration.
-vector<std::string> worker_list; // Global workers list 
+Worker::Worker*  worker_list;  /* Worker class */

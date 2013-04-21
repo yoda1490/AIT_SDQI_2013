@@ -57,7 +57,7 @@ float LogData::getWorkingHour()
 //------- Worker -----------
 Worker::Worker(std::string input_string)
 {
-	boost::split(_workers,input_string,boost::is_any_of(","));
+	boost::split(_workers,input_string,boost::is_any_of(","),boost::token_compress_on);
 	// _workers = split(input_string , ',');
 }
 int Worker::getTotalWorker()
