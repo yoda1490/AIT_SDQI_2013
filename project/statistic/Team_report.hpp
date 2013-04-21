@@ -2,7 +2,7 @@
 #include <map>
 #include <list>
 #include <iostream>
-#include "../commit_data/LogData.hpp"
+#include "../commit_data/LogData.cpp"
 class Teamdata {
 	protected:
 		std::map <std::string,float> Total_hours_phase;

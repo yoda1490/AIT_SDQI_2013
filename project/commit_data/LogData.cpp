@@ -1,6 +1,7 @@
 #include "LogData.hpp"
 
-
+int iteration_counter2 ; //Count each iteration and then add them up
+std::string current_iteration2 ; //track the current iteration.
 /* Defect constructor */
 Defect::Defect(){
 	// return 0;
@@ -108,7 +109,7 @@ LogData::LogData(string iterationID, string phase ,string date, string workh, st
 
 
 // ---------- Common Declaration--------------
-
+/*
 int main() 
 {
 
