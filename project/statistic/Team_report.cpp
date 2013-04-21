@@ -1,21 +1,28 @@
 #include "Team_report.hpp"
 void Teamdata::Cal_Statistic(std::list<LogData> temp)
 {
+    std::map <std::string,float>::iterator mit;
     for (std::list<LogData>::iterator it = temp.begin(); it != temp.end(); it++)
     {
-	// assign value to the null value
-	if (Total_hours_iter.size() == 0)
+	// --------------hours per phase---------------
+	mit = Total_hours_phase.find(it->getPhase());
+	if (mit != Total_hours_phase.end())
 	{
-	    // ------Working hour -----
-	    Total_hours_phase[it->getPhase()] = it->getWorkingHour();		
-	    Total_hours_iter[it->getIteration()]= it->getWorkingHour();
+	    mit->second += it->getWorkingHour();
 	}
-	// add value for each loop
 	else
 	{
-	    // ------Working hour -----
-	    Total_hours_phase[it->getPhase()] += it->getWorkingHour();		
-	    Total_hours_iter[it->getIteration()] += it->getWorkingHour();
+	    Total_hours_phase.insert(St_f_pair (it->getPhase(),it->getWorkingHour()));
+	}
+	// --------------hours per iteration---------------
+	mit = Total_hours_iter.find(it->getIteration());
+	if (mit != Total_hours_iter.end())
+	{
+	    mit->second += it->getWorkingHour();
+	}
+	else
+	{
+	    Total_hours_iter.insert(St_f_pair (it->getIteration(),it->getWorkingHour()));
 	}
 	
     }

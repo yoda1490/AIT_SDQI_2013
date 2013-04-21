@@ -26,9 +26,9 @@ BOOST_AUTO_TEST_CASE( test )
 
 	Teamdata team;
 	team.Cal_Statistic(temp);
-	BOOST_CHECK_EQUAL(team.get_Total_hours_phase()["T"],5);
-	BOOST_CHECK_EQUAL(team.get_Total_hours_phase()["C"],5);
-	BOOST_CHECK_EQUAL(team.get_Total_hours_iter()["0408"],10);
+	BOOST_CHECK_EQUAL(team.get_Total_hours_phase("T"),5);
+	BOOST_CHECK_EQUAL(team.get_Total_hours_phase("C"),5);
+	BOOST_CHECK_EQUAL(team.get_Total_hours_iter("0408"),10);
 
 }
 
