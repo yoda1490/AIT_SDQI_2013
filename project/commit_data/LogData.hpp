@@ -20,33 +20,6 @@ class Worker{
 };
 
 /*****************************************************************
-  Reuse instructions                                          
-    Phase->PHASE_CODE , Phase->PHASE_TEST    
-    Purpose: Phase Defect type         
-    Limitations: -
-    Return: PHASE VARIABLE
-*****************************************************************/
-class Phase{
-	private:
-		static const std::string PHASE_CODE;
-		static const std::string PHASE_TEST;
-		std::string _phase;
-	public:
-		Phase(std::string );
-
-		std::string getPhase(){
-			return _phase;
-		}
-
-		void setPhase(){
-
-		}
-};
-const std::string Phase::PHASE_CODE = "c";
-const std::string Phase::PHASE_TEST = "t";
-
-
-/*****************************************************************
   Reuse instructions
   	new Defect(Defect::Defect->DEFECT_ENVIRONMENT ,Phase::Phase->PHASE_CODE );                                          
     Purpose: Store the Defect type           
@@ -92,15 +65,32 @@ class Defect{
 *****************************************************************/
 class LogData{
 	protected:
-		std::string iteration_id;
-		std::string phase;
-		std::string start_date;
-		float working_hour;
-		Worker worker_pair;  /* Worker class */
-		Defect defect;
-		std::string comment; //the comment data type
+		std::string _iteration_id;
+		std::string _phase;
+		std::string _start_date;
+		float _working_hour;
+		Worker _worker_pair;  /* Worker class */
+		Defect _defect;
+		std::string _comment; //the comment data type
 	public:
 		LogData(std::string , std::string  ,std::string , std::string , std::string  , std::string  , std::string );
+
+		//---- Iteration ------
+		std::string generateIteration(std::string );
+		std::string getIteration();
+		std::string ZeroPadNumber(int ,int);
+		//---- Phase String ----
+		std::string getPhase();
+		//---- Date ----
+		std::string getdate();
+		//---- working hour -----
+		float getWorkingHour();
+		//---- worker -----
+
+		//---- Defect -----
+
+		//---- Comment -----
+		std::string getComment();
 };
 
 
