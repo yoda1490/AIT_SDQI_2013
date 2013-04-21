@@ -12,7 +12,7 @@ class Teamdata {
 		std::map <std::string,int> Total_def_per_type;
 	public:
 		void Cal_Statistic(std::list<LogData> temp);
-		void Cal_def_Statistic(std::list<DefectData> temp)
+		//void Cal_def_Statistic(std::list<DefectData> temp)
 
 		 // ----  get total hour for each phrase ----
 		std::map <std::string,float> get_Total_hours_phase()
