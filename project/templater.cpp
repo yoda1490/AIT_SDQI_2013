@@ -108,9 +108,12 @@ int main(int argc, char ** argv)
 	}
 	cout << endl;
 
+    cin.clear();
 	string comment;
-	cout << "Enter a comment (if needed): ";
-		cin >> comment;
+	cout << "Enter a comment: ";
+	while(comment.length() < 1)
+        getline(cin, comment);
+
 
 	cout << endl;
 
@@ -172,7 +175,7 @@ string perform(const char * command){
 }
 
 int getIterationNumberMax(){
-	FILE *pipe = popen("git log | grep @iterationID | sed -e 's_.*@iterationID *= *\\([^ \\n]*\\)_\\1_'", "r");
+	FILE *pipe = popen("git pull && git log | grep @iterationID | sed -e 's_.*@iterationID *= *\\([^ \\n]*\\)_\\1_'", "r");
 	if (!pipe){
     	cout << "Error while commiting";
     } 
