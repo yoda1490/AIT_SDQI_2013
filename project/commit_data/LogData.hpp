@@ -83,7 +83,7 @@ class LogData{
 		std::string getPhase();
 		//---- Date ----
 		std::string getdate();
-		//---- working hour -----
+		//---- Working hour -----
 		float getWorkingHour();
 		//---- worker -----
 

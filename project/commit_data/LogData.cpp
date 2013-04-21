@@ -51,10 +51,14 @@ std::string LogData::getPhase()
 	return this->_phase;
 }
 //------- Working hour ----------
-float LogDate::getWorkingHour()
+float LogData::getWorkingHour()
 {
 	return this->_working_hour;
 }
+//------- Worker -----------
+
+//------- Defect -----------
+
 
 //------- Comment -----------
 std::string LogData::getComment()
@@ -67,7 +71,9 @@ LogData::LogData(std::string iterationID, std::string phase ,std::string date, s
 	_iteration_id  = generateIteration(iterationID);
 	_phase =  phase;
 	// TIME --- _start_date
-	_working_hour = atof(workh);
+	const char* workh_buffer ;
+	workh_buffer = workh.c_str();
+	_working_hour = atof(workh_buffer);
 
 	_comment = comment_input;
 
@@ -96,6 +102,7 @@ int main()
 	LogData logdata (iterationID_string, phase_string ,date_string , workinghour_string, worker_string , defect_input, comment_string );
 
 
+	cout << logdata.getWorkingHour() << endl;
 	return 0;
 }
 
