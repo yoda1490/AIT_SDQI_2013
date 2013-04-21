@@ -9,9 +9,9 @@ Defect::Defect(){
 
 
 // -------- Log data function ----------
-std::string LogData::ZeroPadNumber(int num, int num_length)
+string LogData::ZeroPadNumber(int num, int num_length)
 {
-	std::stringstream ss;
+	stringstream ss;
 	// the number is converted to string with the help of stringstream
 	ss << num; 
 	string ret;
@@ -22,7 +22,7 @@ std::string LogData::ZeroPadNumber(int num, int num_length)
 		ret = "0" + ret;
 	return ret;
 }
-std::string LogData::generateIteration(std::string it_input)
+string LogData::generateIteration(string it_input)
 {
 	string output = it_input;
 	if(current_iteration2.compare(it_input) == 0 )//same
@@ -39,13 +39,13 @@ std::string LogData::generateIteration(std::string it_input)
 	return output;
 }
 
-std::string LogData::getIteration()
+string LogData::getIteration()
 {
 	return this->_iteration_id;
 }
 
 //------- Phase ----------
-std::string LogData::getPhase()
+string LogData::getPhase()
 {
 	return this->_phase;
 }
@@ -55,7 +55,7 @@ float LogData::getWorkingHour()
 	return this->_working_hour;
 }
 //------- Worker -----------
-Worker::Worker(std::string input_string)
+Worker::Worker(string input_string)
 {
 	boost::split(_workers,input_string,boost::is_any_of(","),boost::token_compress_on);
 	// _workers = split(input_string , ',');
@@ -65,7 +65,7 @@ int Worker::getTotalWorker()
 	return _workers.size();
 }
 
-std::vector<std::string> Worker::getWorkerList()
+vector<string> Worker::getWorkerList()
 {
 	return _workers;
 }
@@ -79,13 +79,19 @@ void Worker::printWorker()
 
 
 //------- Comment -----------
-std::string LogData::getComment()
+string LogData::getComment()
 {
 	return this->_comment;
 }
 
-LogData::LogData(std::string iterationID, std::string phase ,std::string date, std::string workh, std::string worker_input , std::string defect_inject_input , std::string comment_input )
+LogData::LogData(string iterationID, string phase ,string date, string workh, string worker_input , string defect_inject_input , string comment_input ): _worker_pair(worker_input)
 {
+
+	//_worker_pair = new Worker(worker_input);
+
+	iteration_counter2 =0; //Count each iteration and then add them up
+    current_iteration2 = ""; //track the current iteration.
+    
 	_iteration_id  = generateIteration(iterationID);
 	_phase =  phase;
 	
@@ -94,7 +100,6 @@ LogData::LogData(std::string iterationID, std::string phase ,std::string date, s
 	workh_buffer = workh.c_str();
 	_working_hour = atof(workh_buffer);
 
-	_worker_pair = new Worker::Worker(worker_input);
 	// cout << temp_worker.getTotalWorker << endl;
 
 	_comment = comment_input;
@@ -107,16 +112,16 @@ LogData::LogData(std::string iterationID, std::string phase ,std::string date, s
 int main() 
 {
 
-	std::string iterationID_string =  "0408";
-	std::string phase_string = "t";
-	std::string date_string = "9/4/2013";
-	std::string enddate_string = "Tue Apr 9 14:00:39 2013 +0700";
-	std::string workinghour_string = "1";
-	std::string worker_string = "job,faith";
-	std::string defect_inject_string = "c";
-	std::string defect_type_string = "20";
-	std::string defect_input =  defect_type_string + defect_inject_string ; 
-	std::string comment_string = "This code cannot be used for unit testing since there is no clear function (just only main) So, we choose to use minimal test for this testing. The error that we've found is in the pair list name. - The pair list name alwats begin with comma (',') - missing return 0;" ; //The comment_string , in reality there will be multiple lines.... we should handle this
+	string iterationID_string =  "0408";
+	string phase_string = "t";
+	string date_string = "9/4/2013";
+	string enddate_string = "Tue Apr 9 14:00:39 2013 +0700";
+	string workinghour_string = "1";
+	string worker_string = "job,faith";
+	string defect_inject_string = "c";
+	string defect_type_string = "20";
+	string defect_input =  defect_type_string + defect_inject_string ; 
+	string comment_string = "This code cannot be used for unit testing since there is no clear function (just only main) So, we choose to use minimal test for this testing. The error that we've found is in the pair list name. - The pair list name alwats begin with comma (',') - missing return 0;" ; //The comment_string , in reality there will be multiple lines.... we should handle this
 	list<LogData> temp_list ;
 
 	LogData logdata (iterationID_string, phase_string ,date_string , workinghour_string, worker_string , defect_input, comment_string );

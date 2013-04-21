@@ -22,11 +22,11 @@ using namespace std;
 *****************************************************************/
 class Worker{
 	private:
-		std::vector<std::string> _workers;
+		vector<string> _workers;
 	public:
-		Worker(std::string); //constructor
+		Worker(string); //constructor
 		int getTotalWorker(); //return number of workers
-		std::vector <std::string> getWorkerList();
+		vector <string> getWorkerList();
 		void printWorker();
 };
 
@@ -76,24 +76,29 @@ class Defect{
 *****************************************************************/
 class LogData{
 	protected:
-		std::string _iteration_id;
-		std::string _phase;
-		std::string _start_date;
+		string _iteration_id;
+		string _phase;
+		string _start_date;
 		float _working_hour;
 		Worker  _worker_pair;  /* Worker class */
 		Defect _defect;
-		std::string _comment; //the comment data type
+		string _comment; //the comment data type
 	public:
-		LogData(std::string , std::string  ,std::string , std::string , std::string  , std::string  , std::string );
+
+        int iteration_counter2 ; //Count each iteration and then add them up
+        string current_iteration2 ; //track the current iteration.
+        
+
+		LogData(string iterationID, string phase ,string date, string workh, string worker_input , string defect_inject_input , string comment_input );
 
 		//---- Iteration ------
-		std::string generateIteration(std::string );
-		std::string getIteration();
-		std::string ZeroPadNumber(int ,int);
+		string generateIteration(string );
+		string getIteration();
+		string ZeroPadNumber(int ,int);
 		//---- Phase String ----
-		std::string getPhase();
+		string getPhase();
 		//---- Date ----
-		std::string getdate();
+		string getdate();
 		//---- Working hour -----
 		float getWorkingHour();
 		//---- worker -----
@@ -101,10 +106,8 @@ class LogData{
 		//---- Defect -----
 
 		//---- Comment -----
-		std::string getComment();
+		string getComment();
 };
 
 
-int iteration_counter2 =0; //Count each iteration and then add them up
-std::string current_iteration2 = ""; //track the current iteration.
-Worker  worker_list;  /* Worker class */
+
