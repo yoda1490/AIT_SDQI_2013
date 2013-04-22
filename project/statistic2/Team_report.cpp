@@ -5,6 +5,7 @@
 using namespace std;
 void Teamdata::Cal_Statistic(std::list<extractor> temp)
 {
+	Num_iter = 0;
     std::map <std::string,float>::iterator mit;
     for (std::list<extractor>::iterator it = temp.begin(); it != temp.end(); it++)
     {
@@ -22,9 +23,11 @@ void Teamdata::Cal_Statistic(std::list<extractor> temp)
 	// --------------hours per iteration---------------
 
 	std::string t_iterid = it->getIterationID().substr(0,4);
-	mit = Total_hours_iter.find(t_iterid.c_str());
+	//cout << t_iterid << endl;
+	mit = Total_hours_iter.find(t_iterid);
 	if (mit != Total_hours_iter.end())
 	{
+	//cout << "find" << endl;
 	   // cout <<mit->first << "\n";
 	    //cout <<mit->second << "\n";
 	    mit->second += atof(it->getWorkinghour().c_str());
@@ -32,6 +35,7 @@ void Teamdata::Cal_Statistic(std::list<extractor> temp)
 	else
 	{
 	    Total_hours_iter.insert(pair <std::string,int>(t_iterid,atof(it->getWorkinghour().c_str())));
+	    Num_iter+=1;
 	}
     }
 }

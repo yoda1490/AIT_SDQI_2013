@@ -6,12 +6,13 @@ int main(){
     extractor et;
     list<extractor> tmp = et.main_extract("log/gitlog.txt");
     team.Cal_Statistic(tmp);
+    int num_iter = team.get_Num_iter();
     float Total_h_PT = team.get_Total_hours_phase("t");
     float Total_h_PC = team.get_Total_hours_phase("c");
     cout << "Total hours of testing " << Total_h_PT << endl;
     cout << "Total hours of coding " << Total_h_PC << endl;
     cout << "Total hours of working " << Total_h_PC + Total_h_PT << endl;
-    cout << "Total number of iteration " << tmp.size() << endl;
-        cout << "Average working hours per iteration " << (Total_h_PC + Total_h_PT)/tmp.size() << endl;
+    cout << "Total number of iteration " << num_iter << endl;
+        cout << "Average working hours per iteration " << (Total_h_PC + Total_h_PT)/num_iter << endl;
     
 }

@@ -10,6 +10,7 @@ class Teamdata {
 		std::map <std::string,int> Total_def_phase;
 		std::map <std::string,int> Total_def_iter;
 		std::map <std::string,int> Total_def_per_type;
+		int Num_iter;
 	public:
 		void Cal_Statistic(std::list<extractor> temp);
 		//void Cal_def_Statistic(std::list<DefectData> temp)
@@ -20,7 +21,10 @@ class Teamdata {
 			return 	Total_hours_phase.find(f)->second;
 		}
 
-
+		int get_Num_iter()
+		{
+			return 	Num_iter;
+		}
 		// ----  get total hour for each iteration ----
 		float get_Total_hours_iter(std::string f)
 		{

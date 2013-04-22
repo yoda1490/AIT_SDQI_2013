@@ -1,3 +1,33 @@
+commit 62d1fe247cd0ccb0e232d32bc78194f8d98b35bd
+Merge: 201dce8 4c99d93
+Author: sakares <sakares@sakares-VirtualBox.(none)>
+Date:   Mon Apr 22 10:49:09 2013 +0700
+
+    Merge branch 'master' of https://github.com/yoda1490/AIT_SDQI_2013
+    
+    Conflicts:
+    	project/log/gitlog.txt
+
+commit 201dce89e03dfc0b4c850263eef09af1274ed2b2
+Author: sakares <sakares@sakares-VirtualBox.(none)>
+Date:   Mon Apr 22 10:48:04 2013 +0700
+
+    Hot Fix Extractor
+
+commit 4c99d935685f50f672472c81f87ddb9f90989e15
+Author: Faith <faith@faith-VirtualBox.(none)>
+Date:   Mon Apr 22 10:44:29 2013 +0700
+
+    @iterationID=404201
+    @phase=t
+    @startdate=22/4/2013
+    @workinghour=1.5
+    @worker=job,faith
+    @defect_inject=t
+    @defect_type=6
+    @comment=
+             - edit the .sh file to make it run properly
+
 commit 1947bd14c89c146a8fe62d3a71fe6bd0551562f9
 Author: Faith <faith@faith-VirtualBox.(none)>
 Date:   Mon Apr 22 04:44:23 2013 +0700
@@ -566,4 +596,3 @@ Author: Amaury <y0da@live.fr>
 Date:   Thu Feb 21 01:34:49 2013 -0800
 
     Initial commit
-
