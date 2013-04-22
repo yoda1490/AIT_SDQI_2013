@@ -565,15 +565,5 @@ commit 49a1466b772471c04019901d9cfc1a3f4b86feec
 Author: Amaury <y0da@live.fr>
 Date:   Thu Feb 21 01:34:49 2013 -0800
 
-    //Initial commit
-    @iterationID = 0408
-    @phase = t
-    @startdate = 9/4/2013
-    @workinghour = 1
-    @worker = job,faith
-    @defect_inject = c
-    @defect_type = 20 (Syntax)
-    @comment = This code cannot be used for unit testing since there is no clear function (just only main)
-    	   So, we choose to use minimal test for this testing. The error that we've found is in the pair list name.
-               - The pair list name alwats begin with comma (",")
-    	   - missing return 0;
+    Initial commit
+

@@ -6,8 +6,8 @@ int main(){
     extractor et;
     list<extractor> tmp = et.main_extract("log/gitlog.txt");
     team.Cal_Statistic(tmp);
-    float Total_h_PT = (((team.get_Total_hours_phase("t")*10)+0.5)/10);
-    float Total_h_PC = (((team.get_Total_hours_phase("c")*10)+0.5)/10);
+    float Total_h_PT = team.get_Total_hours_phase("t");
+    float Total_h_PC = team.get_Total_hours_phase("c");
     cout << "Total hours of testing " << Total_h_PT << endl;
     cout << "Total hours of coding " << Total_h_PC << endl;
     cout << "Total hours of working " << Total_h_PC + Total_h_PT << endl;
