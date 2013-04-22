@@ -1,15 +1,19 @@
 
 #include "extractor.hpp"
+#include <list>
+#include <iterator>
+#include <iostream>
 using namespace std;
 int main(){
 	extractor et;
-	vector <extractor> v = et.main_extract("../log/gitlog.txt");
+	list <extractor> v = et.main_extract("../log/gitlog.txt");
 	//cout << v.size() << endl;
 	//et.printResultList(tmp);
-
-        for (size_t n = 0; n < v.size(); n++)
+        for (std::list<extractor>::iterator it = v.begin(); it != v.end(); it++)
+    //std::cout << *it << ' ';
+    //    for (size_t n = 0; n < v.size(); n++)
     {
-        extractor et = v[n];
+        extractor et = *it;
         cout << "==================== Extracted Object ====================" << endl;
         cout << "@iterationID = " << et.getIterationID() << endl;
         cout << "phase = " << et.getPhase() << endl;

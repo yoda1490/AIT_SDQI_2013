@@ -134,7 +134,7 @@ list<extractor> extractor::main_extract(std::string file_name){
           ++beg)
     { 
         
-        if(*beg == "commit") {
+        if(*beg == "commit" || beg == tok.end()) {
              if(key_commit == false) {
 	     	key_commit = true;
              }
@@ -146,6 +146,7 @@ list<extractor> extractor::main_extract(std::string file_name){
                    result_list.push_back(et);
                    //printExtractor(et);
 		}
+                comment_stream = "";
                 key_author = false;
 		key_date = false;
 		have_var = false;
